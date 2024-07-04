@@ -42,9 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\PedidosDAO.cs" />
+    <Compile Include="DAO\ProductoDAO.cs" />
     <Compile Include="DAO\UsuariosDAO.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Pedidos.cs" />
+    <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
