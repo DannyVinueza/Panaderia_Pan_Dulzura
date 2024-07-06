@@ -12,10 +12,6 @@ namespace Panaderia_AccesoDatos.Entidades
         public int ID_pedido { get; set; }
         public int ID_producto { get; set; }
         public int Cantidad { get; set; }
-        public float Precio { get; set; }
-        // Propiedad de navegación para Pedidos y Productos
-        public Pedidos Pedidos { get; set; }
-        public Producto Producto { get; set; }
-
+        public double Precio { get; set; }
     }
 }

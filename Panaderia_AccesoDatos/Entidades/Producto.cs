@@ -14,8 +14,5 @@ namespace Panaderia_AccesoDatos.Entidades
         public string Descripcion { get; set; }
         public string Ingredientes { get; set; }
         public int? Calorias { get; set; }
-
-        // Propiedad de navegación para la categoría asociada (opcional)
-        public Categoria Categoria { get; set; }
     }
 }

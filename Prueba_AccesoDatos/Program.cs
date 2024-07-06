@@ -33,6 +33,8 @@ namespace Prueba_AccesoDatos
 
             var resPed = new PedidosDAO();
             //resPed.InsertarPedido_PR(pedido);
+            // Listar productos
+            Console.WriteLine("\n**Listado de pedidos:**");
             var respuestaPedido = resPed.ListarPedido_PR();
 
             foreach (DataRow rowP in respuestaPedido.Rows)
@@ -74,6 +76,59 @@ namespace Prueba_AccesoDatos
             {
                 Console.WriteLine($"ID: {filaProducto["ID_producto"]} - Nombre: {filaProducto["Nombre"]} - Categoría: {filaProducto["ID_categoria"]} - Descripción: {filaProducto["Descripcion"]}");
             }
+
+            // Insertar Pago
+            Pagos pagos = new Pagos();
+            pagos.ID_pedido = 2;
+            pagos.Monto = 123.12;
+            pagos.Fecha_Pago = DateTime.UtcNow.AddHours(-5);
+            pagos.Metodo_Pago = "Efectivo";
+
+            PagosDAO pagosDAO = new PagosDAO();
+            //pagosDAO.InsertarPago_PR(pagos);
+
+            // Listar pagos
+            Console.WriteLine("\n**Listado de pagos:**");
+            DataTable pagosList = pagosDAO.ListarPago_PR();
+            foreach (DataRow listPagos in pagosList.Rows)
+            {
+                Console.WriteLine("{0} {1} {2} {3} {4}", listPagos[0], listPagos[1], listPagos[2], listPagos[3], listPagos[4]);
+            }
+
+            // Insertar 
+            Detalle_Pedido detalle_Pedido = new Detalle_Pedido();
+            detalle_Pedido.ID_pedido = 1;
+            detalle_Pedido.ID_producto = 2;
+            detalle_Pedido.Cantidad = 12;
+            detalle_Pedido.Precio = 49;
+            Detalle_PedidoDAO detallePedidoDAO = new Detalle_PedidoDAO();
+            //detallePedidoDAO.InsertarDetallePedido_PR(detalle_Pedido);
+
+            //Listar detalle pedido
+            Console.WriteLine("\n**Listado de detalle pedido:**");
+            DataTable dtListarDetallePedido = detallePedidoDAO.ListarDetallePedido_PR();
+            foreach (DataRow listDetallePedido in dtListarDetallePedido.Rows)
+            {
+                Console.WriteLine("{0} {1} {2} {3} {4}", listDetallePedido[0], listDetallePedido[1], listDetallePedido[2], listDetallePedido[3], listDetallePedido[4]);
+            }
+
+            // Insertar Notificaciones
+            Notificaciones notificaciones = new Notificaciones();
+            notificaciones.ID_pedido = 1;
+            notificaciones.Tipo = "Redondo Tipo";
+            notificaciones.Fecha_Notificacion = DateTime.UtcNow.AddHours(-5);
+
+            NotificacionesDAO notifiDao = new NotificacionesDAO();
+            //notifiDao.InsertarNotificacionesSinSP(notificaciones);
+
+            // Listar notificaciones
+            Console.WriteLine("\n**Listado de notificaciones:**");
+            DataTable dtNotifi = notifiDao.ListarNotificacionesSinSP();
+            foreach (DataRow listNotifi in dtNotifi.Rows)
+            {
+                Console.WriteLine("{0} {1} {2} {3}", listNotifi[0], listNotifi[1], listNotifi[2], listNotifi[3]);
+            }
+
             Console.ReadLine();
         }
     }

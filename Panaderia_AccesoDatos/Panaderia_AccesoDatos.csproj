@@ -43,12 +43,16 @@
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\Detalle_PedidoDAO.cs" />
     <Compile Include="DAO\NotificacionesDAO.cs" />
+    <Compile Include="DAO\PagosDAO.cs" />
     <Compile Include="DAO\PedidosDAO.cs" />
     <Compile Include="DAO\ProductoDAO.cs" />
     <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Detalle_Pedido.cs" />
     <Compile Include="Entidades\Notificaciones.cs" />
+    <Compile Include="Entidades\Pagos.cs" />
     <Compile Include="Entidades\Pedidos.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\Usuarios.cs" />

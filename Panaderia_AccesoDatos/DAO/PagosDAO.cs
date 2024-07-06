@@ -23,7 +23,7 @@ namespace Panaderia_AccesoDatos.DAO
             {
                 ejecutarSql.Connection = conexion.AbrirConexion();
 
-                ejecutarSql.CommandText = "ID_pagos,ID_pedido, Monto, Fecha_Pago, Metodo_Pago, Estado FROM Pagos";
+                ejecutarSql.CommandText = "SELECT ID_pago,ID_pedido, Monto, Fecha_Pago, Metodo_Pago FROM Pagos";
 
                 transaccion = ejecutarSql.ExecuteReader();
                 dt.Load(transaccion);
@@ -41,7 +41,7 @@ namespace Panaderia_AccesoDatos.DAO
             ejecutarSql.Connection = conexion.AbrirConexion();
             try
             {
-                ejecutarSql.CommandText = "INSERT INTO Pagos (ID_pagos,ID_pedido, Monto, Fecha_Pago, Metodo_Pago) VALUES ('" + nuevoPago.ID_pagos + "', '" + nuevoPago.ID_pedido + "', '" + nuevoPago.Monto + "', '" + nuevoPago.Fecha_Pago + "', '" + nuevoPago.Metodo_Pago + "');";
+                ejecutarSql.CommandText = "INSERT INTO Pagos (ID_pedido, Monto, Fecha_Pago, Metodo_Pago) VALUES ('" + nuevoPago.ID_pedido + "', '" + nuevoPago.Monto + "', '" + nuevoPago.Fecha_Pago + "', '" + nuevoPago.Metodo_Pago + "');";
 
                 ejecutarSql.ExecuteNonQuery();
                 conexion.CerrarConexion();
@@ -59,7 +59,7 @@ namespace Panaderia_AccesoDatos.DAO
             {
                 ejecutarSql.Connection = conexion.AbrirConexion();
 
-                ejecutarSql.CommandText = "pr_Pago";
+                ejecutarSql.CommandText = "pr_ListarPagos";
                 ejecutarSql.CommandType = CommandType.StoredProcedure;
                 transaccion = ejecutarSql.ExecuteReader();
                 dt.Load(transaccion);
@@ -79,7 +79,6 @@ namespace Panaderia_AccesoDatos.DAO
                 ejecutarSql.Connection = conexion.AbrirConexion();
                 ejecutarSql.CommandText = "pr_InsertarPago";
                 ejecutarSql.CommandType = CommandType.StoredProcedure;
-                ejecutarSql.Parameters.AddWithValue("@ID_pagos", nuevoPago.ID_pagos);
                 ejecutarSql.Parameters.AddWithValue("@ID_pedido", nuevoPago.ID_pedido);
                 ejecutarSql.Parameters.AddWithValue("@Monto", nuevoPago.Monto);
                 ejecutarSql.Parameters.AddWithValue("@Fecha_Pago", nuevoPago.Fecha_Pago);

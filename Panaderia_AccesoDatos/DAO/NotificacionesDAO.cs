@@ -83,11 +83,11 @@ namespace Panaderia_AccesoDatos.DAO
 
                 ejecutarSql.CommandText = "pr_InsertarNotificacion";
                 ejecutarSql.CommandType = CommandType.StoredProcedure;
-                ejecutarSql.Parameters.AddWithValue("@ID_notificacion", nuevaNotificacion.ID_Notificaciones);
                 ejecutarSql.Parameters.AddWithValue("@ID_pedido", nuevaNotificacion.ID_pedido);
                 ejecutarSql.Parameters.AddWithValue("@Tipo", nuevaNotificacion.Tipo);
                 ejecutarSql.Parameters.AddWithValue("@Fecha_Notificacion", nuevaNotificacion.Fecha_Notificacion);
                 ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
             }
             catch (Exception ex)
             {
@@ -108,12 +108,12 @@ namespace Panaderia_AccesoDatos.DAO
             {
                 ejecutarSql.Connection = conexion.AbrirConexion();
 
-                ejecutarSql.CommandText = "INSERT INTO Notificaciones (ID_notificacion, ID_pedido, Tipo, Fecha_Notificacion) VALUES (@ID_notificacion, @ID_pedido, @Tipo, @Fecha_Notificacion)";
-                ejecutarSql.Parameters.AddWithValue("@ID_notificacion", nuevaNotificacion.ID_Notificaciones);
+                ejecutarSql.CommandText = "INSERT INTO Notificaciones (ID_pedido, Tipo, Fecha_Notificacion) VALUES (@ID_pedido, @Tipo, @Fecha_Notificacion)";
                 ejecutarSql.Parameters.AddWithValue("@ID_pedido", nuevaNotificacion.ID_pedido);
                 ejecutarSql.Parameters.AddWithValue("@Tipo", nuevaNotificacion.Tipo);
                 ejecutarSql.Parameters.AddWithValue("@Fecha_Notificacion", nuevaNotificacion.Fecha_Notificacion);
                 ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
             }
             catch (Exception ex)
             {

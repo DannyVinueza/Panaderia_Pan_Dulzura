@@ -38,7 +38,7 @@ namespace Panaderia_AccesoDatos.DAO
             ejecutarSql.Connection = conexion.AbrirConexion();
             try
             {
-                ejecutarSql.CommandText = "INSERT INTO Detalle_Pedido (ID_pedido, ID_producto, Cantidad, Precio) VALUES ('"+nuevoDetallePedido.ID_pedido + "', '" + nuevoDetallePedido.ID_producto + "', '" + nuevoDetallePedido.Cantidad + "', '" + nuevoDetallePedido.Precio + "');";
+                ejecutarSql.CommandText = "INSERT INTO Detalle_Pedido (ID_pedido, ID_producto, Cantidad, Precio) VALUES ("+nuevoDetallePedido.ID_pedido + ", " + nuevoDetallePedido.ID_producto + ", " + nuevoDetallePedido.Cantidad + ", " + nuevoDetallePedido.Precio + ");";
                 ejecutarSql.ExecuteNonQuery();
                 conexion.CerrarConexion();
             }
