@@ -18,6 +18,7 @@ namespace Panaderia_Presentacion
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmProducto());
             Application.Run(new FrmCategoria());
+            Application.Run(new FrmNotificaciones());
         }
     }
 }
