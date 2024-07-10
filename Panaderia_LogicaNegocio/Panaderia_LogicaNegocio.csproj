@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="CategoriaLogica.cs" />
     <Compile Include="NotificacionesLogica.cs" />
+    <Compile Include="PedidosLogica.cs" />
     <Compile Include="ProductoLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuariosLogica.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Panaderia_AccesoDatos\Panaderia_AccesoDatos.csproj">

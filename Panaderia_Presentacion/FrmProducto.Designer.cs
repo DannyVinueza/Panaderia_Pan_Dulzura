@@ -44,12 +44,16 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboCategoria = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnIrPagina = new System.Windows.Forms.Button();
+            this.cbxVentanas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -202,6 +206,14 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             // 
+            // comboCategoria
+            // 
+            this.comboCategoria.FormattingEnabled = true;
+            this.comboCategoria.Location = new System.Drawing.Point(284, 102);
+            this.comboCategoria.Name = "comboCategoria";
+            this.comboCategoria.Size = new System.Drawing.Size(121, 24);
+            this.comboCategoria.TabIndex = 11;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnCancelar);
@@ -213,29 +225,49 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
-            // comboCategoria
-            // 
-            this.comboCategoria.FormattingEnabled = true;
-            this.comboCategoria.Location = new System.Drawing.Point(284, 102);
-            this.comboCategoria.Name = "comboCategoria";
-            this.comboCategoria.Size = new System.Drawing.Size(121, 24);
-            this.comboCategoria.TabIndex = 11;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(471, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(186, 31);
+            this.label7.Size = new System.Drawing.Size(149, 25);
             this.label7.TabIndex = 21;
             this.label7.Text = "PRODUCTOS";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnIrPagina);
+            this.groupBox3.Controls.Add(this.cbxVentanas);
+            this.groupBox3.Location = new System.Drawing.Point(1112, 175);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(226, 163);
+            this.groupBox3.TabIndex = 24;
+            this.groupBox3.TabStop = false;
+            // 
+            // btnIrPagina
+            // 
+            this.btnIrPagina.Location = new System.Drawing.Point(56, 117);
+            this.btnIrPagina.Name = "btnIrPagina";
+            this.btnIrPagina.Size = new System.Drawing.Size(117, 25);
+            this.btnIrPagina.TabIndex = 1;
+            this.btnIrPagina.Text = "Ir a la página seleccionada";
+            this.btnIrPagina.UseVisualStyleBackColor = true;
+            // 
+            // cbxVentanas
+            // 
+            this.cbxVentanas.FormattingEnabled = true;
+            this.cbxVentanas.Location = new System.Drawing.Point(35, 29);
+            this.cbxVentanas.Name = "cbxVentanas";
+            this.cbxVentanas.Size = new System.Drawing.Size(121, 24);
+            this.cbxVentanas.TabIndex = 0;
             // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1151, 569);
+            this.ClientSize = new System.Drawing.Size(1374, 569);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -247,6 +279,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +306,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboCategoria;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnIrPagina;
+        private System.Windows.Forms.ComboBox cbxVentanas;
     }
 }

@@ -46,17 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormHelper.cs" />
     <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCategoria.Designer.cs">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNotificaciones.cs">
+    <Compile Include="FrmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNotificaciones.Designer.cs">
-      <DependentUpon>FrmNotificaciones.cs</DependentUpon>
+    <Compile Include="FrmPedidos.Designer.cs">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
@@ -64,16 +65,22 @@
     <Compile Include="FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNotificaciones.resx">
-      <DependentUpon>FrmNotificaciones.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

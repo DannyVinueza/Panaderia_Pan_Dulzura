@@ -24,6 +24,7 @@ namespace Panaderia_Presentacion
             productoLogica = new ProductoLogica();
             nuevoProducto = new Producto();
             categoriaLogica = new CategoriaLogica();
+            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmProducto");
         }
 
         private void insertarProducto()
