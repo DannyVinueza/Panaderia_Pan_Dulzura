@@ -21,6 +21,7 @@ namespace Panaderia_Presentacion
             InitializeComponent();
             categoriaLogica = new CategoriaLogica();
             nuevaCategoria = new Categoria();
+            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmCategoria");
         }
 
         public void listarCategorias()
