@@ -88,16 +88,6 @@ namespace Panaderia_LogicaNegocio
             }
         }
 
-        //Metodo para actualizar una categoria
-        public void ActualizarCategoria(Categoria categoria)
-        {
-            //categoriaDAO.ac(categoria);
-        }
-
-        //Metodo para eliminar una categoria
-        public void EliminarCategoria(int id)
-        {
-            //categoriaDAO.EliminarCategoria(id);
-        }
+     
     }
 }

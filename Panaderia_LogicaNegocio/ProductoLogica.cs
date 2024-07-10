@@ -47,16 +47,6 @@ namespace Panaderia_LogicaNegocio
 
         }
 
-        //Metodo para actualizar un producto
-        public void ActualizarProducto(Producto producto)
-        {
-            //productoDAO.ac(producto);
-        }
-
-        //Metodo para eliminar un producto
-        public void EliminarProducto(int id)
-        {
-            //productoDAO.EliminarProducto(id);
-        }
+   
     }
 }
