@@ -56,6 +56,32 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
+        public List<Categoria> ListarCategoriasList()
+        {
+            try
+            {
+                DataTable dt = ListarCategorias();
+                List<Categoria> categorias = new List<Categoria>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Categoria categoria = new Categoria
+                    {
+                        ID_categoria = Convert.ToInt32(row["ID_categoria"]),
+                        Nombre = row["Nombre"].ToString()
+                        // Asigna otras propiedades si es necesario
+                    };
+                    categorias.Add(categoria);
+                }
+
+                return categorias;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error" + ex.Message);
+            }
+        }
+
         // Insertar categoría sin usar SP
         public void InsertarCategoriaSinSP(Categoria nuevaCategoria)
         {
