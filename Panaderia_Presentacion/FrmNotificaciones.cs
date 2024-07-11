@@ -34,7 +34,7 @@ namespace Panaderia_Presentacion
         {
             nuevaNotificacion.ID_Notificacion = int.Parse(txtID_Notificación.Text);
             nuevaNotificacion.ID_pedido = int.Parse(txtID_pedido.Text);
-            nuevaNotificacion.Tipo = comboTipo.Text;
+            nuevaNotificacion.Tipo = cbxTipo.Text;
             nuevaNotificacion.Fecha_Notificacion = dtpFechaNotificacion.Value;
 
             notificacionesLogica.InsertarNotificaciones(nuevaNotificacion);
