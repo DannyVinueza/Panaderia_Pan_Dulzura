@@ -23,6 +23,7 @@ namespace Panaderia_Presentacion
             InitializeComponent();
             notificacionesLogica = new NotificacionesLogica();
             nuevaNotificacion = new Notificaciones();
+            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmNotificaciones");
         }
 
         private void insertarNotificacion()
@@ -54,6 +55,11 @@ namespace Panaderia_Presentacion
         {
             insertarNotificacion();
             ListarNotificaciones();
+        }
+
+        private void btnAceptar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
