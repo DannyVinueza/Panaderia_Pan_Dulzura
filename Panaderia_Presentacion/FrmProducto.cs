@@ -29,16 +29,16 @@ namespace Panaderia_Presentacion
 
         private void insertarProducto()
         {
-            nuevoProducto.Nombre = txtNombre.Text;
-            nuevoProducto.ID_categoria = Convert.ToInt32(comboCategoria.SelectedValue);
-            nuevoProducto.Descripcion = txtDescripcion.Text;
-            nuevoProducto.Ingredientes = txtIngredientes.Text;
-            nuevoProducto.Calorias = Convert.ToInt32(txtCalorias.Text);
-
             try
             {
+                nuevoProducto.Nombre = txtNombre.Text;
+                nuevoProducto.ID_categoria = Convert.ToInt32(comboCategoria.SelectedValue);
+                nuevoProducto.Descripcion = txtDescripcion.Text;
+                nuevoProducto.Ingredientes = txtIngredientes.Text;
+                nuevoProducto.Calorias = Convert.ToInt32(txtCalorias.Text);
                 productoLogica.InsertarProducto(nuevoProducto);
                 MessageBox.Show("Producto insertado correctamente");
+                listarProductos();
             }
             catch (Exception ex)
             {

@@ -22,28 +22,37 @@ namespace Panaderia_Presentacion
             InitializeComponent();
             pagosLogica = new PagosLogica();
             nuevoPago = new Pagos();
-            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmPedidos");
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmPAgos");
 
         }
         private void InsertarPago()
         {
-            nuevoPago.ID_pedido = Convert.ToInt32(txtIDPedido.Text);
-            nuevoPago.ID_pago = Convert.ToInt32(txtIDPago.Text);
-            nuevoPago.Fecha_Pago = Convert.ToDateTime(dateTimePicker1.Value);
-            nuevoPago.Monto = Convert.ToInt32(txtMonto.Text);
-            nuevoPago.Metodo_Pago = textMetodo.Text;
-            pagosLogica.InsertarPago(nuevoPago);
-            ListarPagos();
+            try
+            {
+                nuevoPago.ID_pedido = Convert.ToInt32(txtIDPedido.Text);
+                //nuevoPago.ID_pago = Convert.ToInt32(txtIDPago.Text);
+                nuevoPago.Fecha_Pago = Convert.ToDateTime(dateTimePicker1.Value);
+                nuevoPago.Monto = Convert.ToDouble(txtMonto.Text);
+                nuevoPago.Metodo_Pago = textMetodo.Text;
+                pagosLogica.InsertarPago(nuevoPago);
+                MessageBox.Show("Pago insertado correctamente");
+                ListarPagos();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al insertar el pago: " + ex.Message);
+            }
         }
         private void ListarPagos()
         {
-            dataListPagos.DataSource = pagosLogica.ListarPagos();
-        }
-
-
-        private void lblEstado_Click(object sender, EventArgs e)
-        {
-
+            try
+            {
+                dataListPagos.DataSource = pagosLogica.ListarPagos();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar los pagos: " + ex.Message);
+            }
         }
 
         private void FrmPagos_Load(object sender, EventArgs e)
@@ -54,11 +63,6 @@ namespace Panaderia_Presentacion
         private void butAceptar_Click(object sender, EventArgs e)
         {
             InsertarPago();
-        }
-
-        private void dataListPagos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

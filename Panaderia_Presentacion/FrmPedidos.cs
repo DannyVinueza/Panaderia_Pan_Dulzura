@@ -24,17 +24,30 @@ namespace Panaderia_Presentacion
 
         private void InsertarPedido()
         {
-            nuevoPedido.ID_usuario = Convert.ToInt32(txtIDUsuario.Text);
-            nuevoPedido.Fecha_Pedido = Convert.ToDateTime(dateTimeFechaPedido.Value);
-            nuevoPedido.Fecha_Entrega = Convert.ToDateTime(dateTimeFechaEntrega.Value);
-            nuevoPedido.Estado = txtEstado.Text;
-            pedidosLogica.InsertarPedido(nuevoPedido);
-            ListarPedidos();
+            try
+            {
+                nuevoPedido.ID_usuario = Convert.ToInt32(txtIDUsuario.Text);
+                nuevoPedido.Fecha_Pedido = Convert.ToDateTime(dateTimeFechaPedido.Value);
+                nuevoPedido.Fecha_Entrega = Convert.ToDateTime(dateTimeFechaEntrega.Value);
+                nuevoPedido.Estado = txtEstado.Text;
+                pedidosLogica.InsertarPedido(nuevoPedido);
+                MessageBox.Show("Pedido insertado correctamente");
+                ListarPedidos();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al insertar el pedido: " + ex.Message);
+            }
         }
 
         private void ListarPedidos()
         {
-            dataListPedidos.DataSource = pedidosLogica.ListarPedidos();
+            try
+            {
+                dataListPedidos.DataSource = pedidosLogica.ListarPedidos();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar los pedidos: " + ex.Message);
+            }
         }
 
         private void butAceptar_Click(object sender, EventArgs e)

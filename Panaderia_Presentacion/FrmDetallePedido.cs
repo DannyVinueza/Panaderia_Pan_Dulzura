@@ -1,13 +1,6 @@
 ﻿using Panaderia_AccesoDatos.Entidades;
 using Panaderia_LogicaNegocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Panaderia_Presentacion
@@ -22,17 +15,18 @@ namespace Panaderia_Presentacion
             InitializeComponent();
             DetallePedidoLogica= new DetallePedidoLogica();
             nuevoDetallePedido = new Detalle_Pedido();
+            FormHelper.InitializeComboBoxAndButton(this, cbxVentanas, btnIrPagina, "FrmDetallePedido");
         }
 
         private void insertarDetallePedido()
         {
-            //nuevoDetallePedido.ID_detalle = Convert.ToInt32(txtidDetalle.Text);
-            nuevoDetallePedido.ID_pedido = Convert.ToInt32(txtidPedido.Text);
-            nuevoDetallePedido.ID_producto = Convert.ToInt32(txtidProducto.Text);
-            nuevoDetallePedido.Cantidad = Convert.ToInt32(txtCantidad.Text);
-            nuevoDetallePedido.Precio = Convert.ToInt32(txtPrecio.Text);
             try
             {
+                //nuevoDetallePedido.ID_detalle = Convert.ToInt32(txtidDetalle.Text);
+                nuevoDetallePedido.ID_pedido = Convert.ToInt32(txtidPedido.Text);
+                nuevoDetallePedido.ID_producto = Convert.ToInt32(txtidProducto.Text);
+                nuevoDetallePedido.Cantidad = Convert.ToInt32(txtCantidad.Text);
+                nuevoDetallePedido.Precio = Convert.ToDouble(txtPrecio.Text);
                 DetallePedidoLogica.InsertarDetallePedido(nuevoDetallePedido);
                 MessageBox.Show("Detalle ingresado correctamente");
                 listarDetallePedido();
@@ -45,18 +39,24 @@ namespace Panaderia_Presentacion
         }
         public void listarDetallePedido()
         {
-            dgvListaDetallePedido.DataSource = DetallePedidoLogica.ListarDetallePedido();
-
-        }
-
-        private void FrmDetallePedido_Load(object sender, EventArgs e)
-        {
-            listarDetallePedido();
+            try
+            {
+                dgvListaDetallePedido.DataSource = DetallePedidoLogica.ListarDetallePedido();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar el detalle de los pedidos: " + ex.Message);
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             insertarDetallePedido();
+        }
+
+        private void FrmDetallePedido_Load(object sender, EventArgs e)
+        {
+            listarDetallePedido();
         }
     }
 }

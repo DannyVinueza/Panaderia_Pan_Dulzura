@@ -44,6 +44,7 @@
     <Compile Include="CategoriaLogica.cs" />
     <Compile Include="DetallePedidoLogica.cs" />
     <Compile Include="NotificacionesLogica.cs" />
+    <Compile Include="PagosLogica.cs" />
     <Compile Include="PedidosLogica.cs" />
     <Compile Include="ProductoLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

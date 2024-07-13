@@ -19,18 +19,31 @@ namespace Panaderia_Presentacion
 
         private void insertarUsuario()
         {
-            nuevoUsuario.Nombre = txtNombre.Text;
-            nuevoUsuario.Direccion = txtDireccion.Text;
-            nuevoUsuario.Telefono = txtTelefono.Text;
-            nuevoUsuario.Correo_Electronico = txtEmail.Text;
-            nuevoUsuario.Contrasena = txtContrasenia.Text;
-            usuarioLogica.InsertarUsuario(nuevoUsuario);
-            ListarUsuarios();
+            try
+            {
+                nuevoUsuario.Nombre = txtNombre.Text;
+                nuevoUsuario.Direccion = txtDireccion.Text;
+                nuevoUsuario.Telefono = txtTelefono.Text;
+                nuevoUsuario.Correo_Electronico = txtEmail.Text;
+                nuevoUsuario.Contrasena = txtContrasenia.Text;
+                usuarioLogica.InsertarUsuario(nuevoUsuario);
+                MessageBox.Show("Usuario insertado correctamente");
+                ListarUsuarios();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al insertar el usuario: " + ex.Message);
+            }
         }
 
         public void ListarUsuarios()
         {
-            dataListUsuarios.DataSource = usuarioLogica.ListarUsuarios();
+            try
+            {
+                dataListUsuarios.DataSource = usuarioLogica.ListarUsuarios();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al listar los usuarios: " + ex.Message);
+            }
         }
 
         private void butAceptar_Click(object sender, EventArgs e)

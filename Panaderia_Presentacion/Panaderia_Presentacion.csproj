@@ -65,6 +65,12 @@
     <Compile Include="FrmNotificaciones.Designer.cs">
       <DependentUpon>FrmNotificaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPAgos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPAgos.Designer.cs">
+      <DependentUpon>FrmPAgos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNotificaciones.resx">
       <DependentUpon>FrmNotificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPAgos.resx">
+      <DependentUpon>FrmPAgos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>

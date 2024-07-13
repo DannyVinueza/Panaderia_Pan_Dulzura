@@ -35,7 +35,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpFechaNotificacion = new System.Windows.Forms.DateTimePicker();
-            this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.txtID_pedido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnIrPagina = new System.Windows.Forms.Button();
             this.cbxVentanas = new System.Windows.Forms.ComboBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaNotificaciones)).BeginInit();
@@ -90,7 +90,7 @@
             this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnEliminar
             // 
@@ -103,8 +103,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.dtpFechaNotificacion);
-            this.groupBox1.Controls.Add(this.cbxTipo);
             this.groupBox1.Controls.Add(this.txtID_pedido);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -124,14 +124,6 @@
             this.dtpFechaNotificacion.Size = new System.Drawing.Size(258, 22);
             this.dtpFechaNotificacion.TabIndex = 12;
             this.dtpFechaNotificacion.Value = new System.DateTime(2024, 7, 9, 0, 0, 0, 0);
-            // 
-            // cbxTipo
-            // 
-            this.cbxTipo.FormattingEnabled = true;
-            this.cbxTipo.Location = new System.Drawing.Point(145, 101);
-            this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(134, 24);
-            this.cbxTipo.TabIndex = 11;
             // 
             // txtID_pedido
             // 
@@ -222,6 +214,13 @@
             this.cbxVentanas.Size = new System.Drawing.Size(121, 24);
             this.cbxVentanas.TabIndex = 0;
             // 
+            // txtTipo
+            // 
+            this.txtTipo.Location = new System.Drawing.Point(145, 98);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(134, 22);
+            this.txtTipo.TabIndex = 13;
+            // 
             // FrmNotificaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -234,6 +233,7 @@
             this.Controls.Add(this.dgvListaNotificaciones);
             this.Name = "FrmNotificaciones";
             this.Text = "FrmNotificaciones";
+            this.Load += new System.EventHandler(this.FrmNotificaciones_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -252,7 +252,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.TextBox txtID_pedido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -264,5 +263,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnIrPagina;
         private System.Windows.Forms.ComboBox cbxVentanas;
+        private System.Windows.Forms.TextBox txtTipo;
     }
 }

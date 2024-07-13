@@ -16,6 +16,8 @@ namespace Panaderia_Presentacion
             comboBox.Items.Add("FrmPedidos");
             comboBox.Items.Add("FrmCategoria");
             comboBox.Items.Add("FrmNotificaciones");
+            comboBox.Items.Add("FrmPAgos");
+            comboBox.Items.Add("FrmDetallePedido");
 
             comboBox.SelectedItem = formPredetermindao;
 
@@ -42,6 +44,12 @@ namespace Panaderia_Presentacion
                         break;
                     case "FrmNotificaciones":
                         formularios = new FrmNotificaciones();
+                        break;
+                    case "FrmPAgos":
+                        formularios = new FrmPagos();
+                        break;
+                    case "FrmDetallePedido":
+                        formularios = new FrmDetallePedido();
                         break;
                 }
 
