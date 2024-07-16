@@ -16,7 +16,7 @@ namespace Panaderia_Presentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUsuarios());
+            Application.Run(new FrmPrincipalPanaderia());
             //Application.Run(new FrmCategoria());
         }
     }

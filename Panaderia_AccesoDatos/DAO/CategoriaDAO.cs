@@ -122,5 +122,48 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
+        // Modificar categoría sin usar SP
+        public void ModificarCategoriaConSP(Categoria categoriaModificada)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+
+                ejecutarSql.CommandText = "pr_ActualizarCategoria";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+                ejecutarSql.Parameters.AddWithValue("@ID_categoria", categoriaModificada.ID_categoria);
+                ejecutarSql.Parameters.AddWithValue("@Nombre", categoriaModificada.Nombre);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar categoría: " + ex.Message);
+            }
+        }
+
+        // Eliminar categoría sin usar SP
+        public void EliminarCategoriaSinSP(int ID_categoria)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+
+                ejecutarSql.CommandText = "DELETE FROM Categorias WHERE ID_categoria = @ID_categoria";
+                ejecutarSql.CommandType = CommandType.Text;
+                ejecutarSql.Parameters.AddWithValue("@ID_categoria", ID_categoria);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar categoría: " + ex.Message);
+            }
+        }
+
+       
+
     }
 }

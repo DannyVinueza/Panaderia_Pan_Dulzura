@@ -104,7 +104,73 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
-            
+        // Modificar producto sin usar SP
+        public void ModificarProductoSinSP(Producto productoModificado)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+
+                ejecutarSql.CommandText = "UPDATE Productos SET Nombre = @Nombre, ID_categoria = @ID_categoria, Descripcion = @Descripcion, Ingredientes = @Ingredientes, Calorias = @Calorias WHERE ID_producto = @ID_producto";
+                ejecutarSql.Parameters.AddWithValue("@ID_producto", productoModificado.ID_producto);
+                ejecutarSql.Parameters.AddWithValue("@Nombre", productoModificado.Nombre);
+                ejecutarSql.Parameters.AddWithValue("@ID_categoria", productoModificado.ID_categoria);
+                ejecutarSql.Parameters.AddWithValue("@Descripcion", productoModificado.Descripcion);
+                ejecutarSql.Parameters.AddWithValue("@Ingredientes", productoModificado.Ingredientes);
+                ejecutarSql.Parameters.AddWithValue("@Calorias", productoModificado.Calorias);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar producto: " + ex.Message);
+            }
+        }
+
+        // Actualizar producto utilizando procedimiento almacenado
+        public void ActualizarProducto(Producto productoActualizado)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_ActualizarProducto";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+                ejecutarSql.Parameters.AddWithValue("@ID_producto", productoActualizado.ID_producto);
+                ejecutarSql.Parameters.AddWithValue("@Nombre", productoActualizado.Nombre);
+                ejecutarSql.Parameters.AddWithValue("@ID_categoria", productoActualizado.ID_categoria);
+                ejecutarSql.Parameters.AddWithValue("@Descripcion", productoActualizado.Descripcion);
+                ejecutarSql.Parameters.AddWithValue("@Ingredientes", productoActualizado.Ingredientes);
+                ejecutarSql.Parameters.AddWithValue("@Calorias", productoActualizado.Calorias);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar producto: " + ex.Message);
+            }
+        }
+
+        // Eliminar producto sin usar SP
+        public void EliminarProductoSinSP(int ID_producto)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "DELETE FROM Productos WHERE ID_producto = @ID_producto";
+                ejecutarSql.CommandType = CommandType.Text;
+                ejecutarSql.Parameters.AddWithValue("@ID_producto", ID_producto);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar producto: " + ex.Message);
+            }
+        }
+
 
     }
 }

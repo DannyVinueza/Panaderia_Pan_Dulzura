@@ -46,7 +46,32 @@ namespace Panaderia_LogicaNegocio
 
 
         }
+        // Metodo para actulizar los productos
+        public void ActualizarProducto(Producto producto)
+        {
+            try
+            {
+                productoDAO.ActualizarProducto(producto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar producto: " + ex.Message);
+            }
+        }
 
-   
+        // Metodo para eliminar los productos
+        public void EliminarProducto(int idProducto)
+        {
+            try
+            {
+                productoDAO.EliminarProductoSinSP(idProducto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar producto: " + ex.Message);
+            }
+        }
+
+
     }
 }

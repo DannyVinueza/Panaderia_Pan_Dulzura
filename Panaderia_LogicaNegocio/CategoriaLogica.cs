@@ -48,6 +48,7 @@ namespace Panaderia_LogicaNegocio
         }
 
 
+        //Metodo para obtener todas las categorias
         public List<Categoria> ObtenerCategoriasList()
         {
             try
@@ -61,8 +62,8 @@ namespace Panaderia_LogicaNegocio
                     Categoria categoria = new Categoria
                     {
                         ID_categoria = Convert.ToInt32(row["ID_categoria"]),
-                        Nombre = row["Nombre"].ToString()
-                        // Asigna otras propiedades si es necesario
+                        Nombre = row["ID_categoria"].ToString() + ' ' + row["Nombre"].ToString()
+                       
                     };
                     categorias.Add(categoria);
                 }
@@ -75,6 +76,7 @@ namespace Panaderia_LogicaNegocio
             }
         }
 
+        //Metodo para insertar una categoria
         public bool insertarCategoria(Categoria categoria)
         {
             try
@@ -87,6 +89,33 @@ namespace Panaderia_LogicaNegocio
                 throw new Exception("Error" + ex.Message);
             }
         }
+
+        //implementa actualizacion de categoria
+        public void ActualizarCategoria(Categoria categoria)
+        {
+            try
+            {
+                categoriaDAO.ModificarCategoriaConSP(categoria);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar categoria: " + ex.Message);
+            }
+        }
+
+        //Metodo para eliminar las categorias
+        public void EliminarCategoria(int idCategoria)
+        {
+            try
+            {
+                categoriaDAO.EliminarCategoriaSinSP(idCategoria);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar categoria: " + ex.Message);
+            }
+        }
+     
 
      
     }

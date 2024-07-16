@@ -54,6 +54,10 @@
       <Project>{d33f1b09-fdf5-4704-baec-fdf524b2a679}</Project>
       <Name>Panaderia_AccesoDatos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Panaderia_LogicaNegocio\Panaderia_LogicaNegocio.csproj">
+      <Project>{b7e934cd-524b-4215-8bf7-e425342dbc7f}</Project>
+      <Name>Panaderia_LogicaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
