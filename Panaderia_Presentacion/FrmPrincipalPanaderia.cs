@@ -1,5 +1,4 @@
-﻿using Panaderia_presentacion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,16 +33,23 @@ namespace Panaderia_Presentacion
             nuevofrmCategoria.Show();
         }
 
-        private void abrirNotificacionNuevo() 
-        { 
-            FrmNotificaciones nuevofrmNotificaciones = new FrmNotificaciones();
-            nuevofrmNotificaciones.MdiParent = this;
-            nuevofrmNotificaciones.Show();
+        private void abrirUsuarioNuevo()
+        {
+            FrmUsuarios nuevofrmUsuario = new FrmUsuarios();
+            nuevofrmUsuario.MdiParent = this;
+            nuevofrmUsuario.Show();
+        }
+
+        private void abrirPedidoNuevo()
+        {
+            FrmPedidos nuevofrmPedidos = new FrmPedidos();
+            nuevofrmPedidos.MdiParent = this;
+            nuevofrmPedidos.Show();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            
+            abrirProductoNuevo();
         }
 
         private void newToolStripButtonOpenFile(object sender, EventArgs e)
@@ -81,14 +87,24 @@ namespace Panaderia_Presentacion
             abrirCategoriaNuevo();
         }
 
-        private void notificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirNotificacionNuevo();
+            abrirUsuarioNuevo();
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirPedidoNuevo();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            abrirNotificacionNuevo();
+            abrirUsuarioNuevo();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            abrirPedidoNuevo();
         }
     }
 }

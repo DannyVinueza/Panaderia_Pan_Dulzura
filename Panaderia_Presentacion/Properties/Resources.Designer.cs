@@ -73,9 +73,9 @@ namespace Panaderia_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_alarma_50 {
+        internal static System.Drawing.Bitmap order {
             get {
-                object obj = ResourceManager.GetObject("icons8-alarma-50", resourceCulture);
+                object obj = ResourceManager.GetObject("order", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +86,16 @@ namespace Panaderia_Presentacion.Properties {
         internal static System.Drawing.Bitmap producto {
             get {
                 object obj = ResourceManager.GetObject("producto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
