@@ -109,6 +109,9 @@
     <EmbeddedResource Include="FrmPAgos.resx">
       <DependentUpon>FrmPAgos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedidos.resx">
+      <DependentUpon>FrmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipalPanaderia.resx">
       <DependentUpon>FrmPrincipalPanaderia.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\producto.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

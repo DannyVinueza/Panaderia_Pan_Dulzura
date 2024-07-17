@@ -12,6 +12,7 @@ namespace Panaderia_LogicaNegocio
             pedidosDAO = new PedidosDAO();
         }
 
+        // Insertar pedido con SP
         public bool InsertarPedido(Pedidos nuevoPedido)
         {
             try
@@ -24,6 +25,7 @@ namespace Panaderia_LogicaNegocio
             }
         }
 
+        // Listar pedidos con SP
         public DataTable ListarPedidos()
         {
             try
@@ -33,6 +35,30 @@ namespace Panaderia_LogicaNegocio
             catch (Exception ex) {
                 throw new Exception(ex.Message);
             }
+        }
+
+        // Actualizar pedido con SP
+        public void ActualizarPedido(Pedidos pedido)
+        {
+            try
+            {
+                pedidosDAO.ActualizarPedido_PR(pedido);
+            }
+            catch (Exception ex) {
+                throw new Exception("Error al actualizar el pedido: " + ex.Message);
+            }
+        }
+
+        // Eliminar el pedido con SP
+        public void EliminarPedido(int IdPedido)
+        {
+            try
+            {
+                pedidosDAO.EliminarPedido_PR(IdPedido);
+            }
+            catch (Exception ex) {
+                throw new Exception("Error al eliminar el pedido: " + ex.Message);
+            }  
         }
     }
 }

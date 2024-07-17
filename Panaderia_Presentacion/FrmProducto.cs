@@ -66,8 +66,6 @@ namespace Panaderia_Presentacion
             comboCategoria.SelectedIndex = -1;
         }
 
-
-
         public void listarProductos()
         {
             try

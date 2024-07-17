@@ -94,5 +94,97 @@ namespace Panaderia_AccesoDatos.DAO
                 throw new Exception("Error al insertar al usuario utilizando SP: " + ex.Message);
             }
         }
+
+        // Actualizar el usuario sin SP
+        public void ActualizarUsuario(Usuarios actualizarUsuario)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "UPDATE Usuarios SET Nombre = @Nombre,  Direccion = @Direccion, Telefono = @Telefono, Correo_Electronico = @Correo_Electronico, Contrasena = @Contrasena WHERE ID_usuario = @ID_usuario";
+                
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", actualizarUsuario.ID_usuario);
+                ejecutarSql.Parameters.AddWithValue("@Nombre", actualizarUsuario.Nombre);
+                ejecutarSql.Parameters.AddWithValue("@Direccion", actualizarUsuario.Direccion);
+                ejecutarSql.Parameters.AddWithValue("@Telefono", actualizarUsuario.Telefono);
+                ejecutarSql.Parameters.AddWithValue("@Correo_Electronico", actualizarUsuario.Correo_Electronico);
+                ejecutarSql.Parameters.AddWithValue("@Contrasena", actualizarUsuario.Contrasena);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex) {
+                throw new Exception("Error al actualizar el usuario: " + ex.Message);
+            }
+        }
+
+        // Actualizar el usuario con SP
+        public void ActualizarUsuario_PR(Usuarios actualizarUsuario)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_ActualizarUsuario";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+                
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", actualizarUsuario.ID_usuario);
+                ejecutarSql.Parameters.AddWithValue("@Nombre", actualizarUsuario.Nombre);
+                ejecutarSql.Parameters.AddWithValue("@Direccion", actualizarUsuario.Direccion);
+                ejecutarSql.Parameters.AddWithValue("@Telefono", actualizarUsuario.Telefono);
+                ejecutarSql.Parameters.AddWithValue("@Correo_Electronico", actualizarUsuario.Correo_Electronico);
+                ejecutarSql.Parameters.AddWithValue("@Contrasena", actualizarUsuario.Contrasena);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el usuario: " + ex.Message);
+            }
+        }
+
+        // Eliminar usuario sin SP
+        public void EliminarUsuario(int Id_Usuario)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "DELETE FROM Usuarios WHERE ID_usuario = @ID_usuario";
+
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", Id_Usuario);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar al usuario: " + ex.Message);
+            }
+        }
+
+        // Eliminar usuario con SP
+        public void EliminarUsuario_SP(int Id_Usuario)
+        {
+
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_EliminarUsuario";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", Id_Usuario);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar al usuario: " + ex.Message);
+            }
+        }
     }
 }

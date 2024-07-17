@@ -33,6 +33,20 @@ namespace Panaderia_Presentacion
             nuevofrmCategoria.Show();
         }
 
+        private void abrirUsuarioNuevo()
+        {
+            FrmUsuarios nuevofrmUsuario = new FrmUsuarios();
+            nuevofrmUsuario.MdiParent = this;
+            nuevofrmUsuario.Show();
+        }
+
+        private void abrirPedidoNuevo()
+        {
+            FrmPedidos nuevofrmPedidos = new FrmPedidos();
+            nuevofrmPedidos.MdiParent = this;
+            nuevofrmPedidos.Show();
+        }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
             abrirProductoNuevo();
@@ -71,6 +85,26 @@ namespace Panaderia_Presentacion
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             abrirCategoriaNuevo();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirUsuarioNuevo();
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirPedidoNuevo();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            abrirUsuarioNuevo();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            abrirPedidoNuevo();
         }
     }
 }

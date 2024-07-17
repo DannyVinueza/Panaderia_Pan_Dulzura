@@ -34,7 +34,7 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
-        // Insertar usuario sin SP
+        // Insertar pedido sin SP
         public void InsertarPedido(Pedidos nuevoPedido)
         {
             ejecutarSql.Connection = conexion.AbrirConexion();
@@ -50,7 +50,7 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
-        // Listar usuarios con SP
+        // Listar pedidos con SP
         public DataTable ListarPedido_PR()
         {
             DataTable dt = new DataTable();
@@ -71,7 +71,7 @@ namespace Panaderia_AccesoDatos.DAO
             }
         }
 
-        // Insertar usuario con SP
+        // Insertar pedido con SP
         public void InsertarPedido_PR(Pedidos nuevoPedido)
         {
             try
@@ -90,6 +90,95 @@ namespace Panaderia_AccesoDatos.DAO
             catch (Exception ex)
             {
                 throw new Exception("Error al insertar al usuario utilizando SP: " + ex.Message);
+            }
+        }
+
+        // Actualizar pedido sin SP
+        public void ActualizarPedido(Pedidos actualizarPedido)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "UPDATE Pedidos SET ID_usuario = @ID_usuario, Fecha_Pedido = @Fecha_Pedido, Fecha_Entrega = @Fecha_Entrega, Estado = @Estado WHERE ID_pedido = @ID_pedido";
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", actualizarPedido.ID_pedido);
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", actualizarPedido.ID_usuario);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_Pedido", actualizarPedido.Fecha_Pedido);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_Entrega", actualizarPedido.Fecha_Entrega);
+                ejecutarSql.Parameters.AddWithValue("@Estado", actualizarPedido.Estado);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch(Exception ex) {
+                throw new Exception("Error al actualizar el pedido: " + ex.Message); 
+            }
+        }
+
+        // Actualizar pedido con SP
+        public void ActualizarPedido_PR(Pedidos actualizarPedido)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_ActualizarPedido";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", actualizarPedido.ID_pedido);
+                ejecutarSql.Parameters.AddWithValue("@ID_usuario", actualizarPedido.ID_usuario);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_Pedido", actualizarPedido.Fecha_Pedido);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_Entrega", actualizarPedido.Fecha_Entrega);
+                ejecutarSql.Parameters.AddWithValue("@Estado", actualizarPedido.Estado);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el pedido: " + ex.Message);
+            }
+        }
+
+        // Eliminar pedido sin SP
+        public void EliminarPedido(int Id_Pedido)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "DELETE FROM Pedidos WHERE ID_pedido = @ID_pedido";
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", Id_Pedido);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pedido: " + ex.Message);
+            }
+        }
+
+        // Eliminar pedido con SP
+        public void EliminarPedido_PR(int Id_Pedido)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_EliminarPedido";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", Id_Pedido);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pedido: " + ex.Message);
             }
         }
     }
