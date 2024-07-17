@@ -43,7 +43,7 @@ namespace Panaderia_Presentacion
                         formularios = new FrmCategoria();
                         break;
                     case "FrmNotificaciones":
-                        formularios = new FrmNotificaciones();
+                        formularios = new Panaderia_presentacion.FrmNotificaciones();
                         break;
                     case "FrmPAgos":
                         formularios = new FrmPagos();

@@ -9,37 +9,67 @@ using System.Threading.Tasks;
 
 namespace Panaderia_LogicaNegocio
 {
-    public class NotificacionesLogica
+    namespace Panaderia_LogicaNegocio
     {
-        private NotificacionesDAO notificacionesDAO;
-
-        public NotificacionesLogica()
-        { 
-            notificacionesDAO = new NotificacionesDAO();
-        }
-
-        public bool InsertarNotificaciones(Notificaciones nuevaNotificacion)
+        public class NotificacionesLogica
         {
-            try
-            {
-                notificacionesDAO.InsertarNotificacion(nuevaNotificacion);
-                return true;
-            }
-            catch (Exception ex)
-            { 
-                throw new Exception("Error: " + ex.Message);
-            }
-        }
+            private NotificacionesDAO notificacionesDAO;
 
-        public DataTable ListarNotificaciones()
-        {
-            try
+            public NotificacionesLogica()
             {
-                return notificacionesDAO.ListarNotificaciones();
+                notificacionesDAO = new NotificacionesDAO();
             }
-            catch (Exception ex)
-            { 
-                throw new Exception ("Error: " + ex.Message);
+
+            // Método para insertar una notificación utilizando SP
+            public void InsertarNotificacion(Notificaciones nuevaNotificacion)
+            {
+                try
+                {
+                    notificacionesDAO.InsertarNotificacion(nuevaNotificacion);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al insertar notificación: " + ex.Message);
+                }
+            }
+
+            // Método para obtener(listar) todas las notificaciones utilizando SP
+            public DataTable ListarNotificaciones()
+            {
+                try
+                {
+                    return notificacionesDAO.ListarNotificaciones();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener notificaciones: " + ex.Message);
+                }
+            }
+
+            // Método para actualizar una notificación utilizando SP
+            public void ActualizarNotificacion(Notificaciones notificacionActualizada)
+            {
+                try
+                {
+                    notificacionesDAO.ActualizarNotificaciones(notificacionActualizada);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al actualizar notificación: " + ex.Message);
+                }
+            }
+
+            // Método para eliminar una notificación sin usar SP
+            public void EliminarNotificacion(int idNotificacion)
+            {
+                try
+                {
+                    notificacionesDAO.EliminarNotificacionesSinSP(idNotificacion);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al eliminar notificación: " + ex.Message);
+                }
             }
         }
     }

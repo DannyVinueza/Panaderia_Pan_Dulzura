@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Panaderia_presentacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,9 +34,16 @@ namespace Panaderia_Presentacion
             nuevofrmCategoria.Show();
         }
 
+        private void abrirNotificacionNuevo() 
+        { 
+            FrmNotificaciones nuevofrmNotificaciones = new FrmNotificaciones();
+            nuevofrmNotificaciones.MdiParent = this;
+            nuevofrmNotificaciones.Show();
+        }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
-            abrirProductoNuevo();
+            
         }
 
         private void newToolStripButtonOpenFile(object sender, EventArgs e)
@@ -71,6 +79,16 @@ namespace Panaderia_Presentacion
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             abrirCategoriaNuevo();
+        }
+
+        private void notificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirNotificacionNuevo();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            abrirNotificacionNuevo();
         }
     }
 }
