@@ -92,6 +92,89 @@ namespace Panaderia_AccesoDatos.DAO
                 throw new Exception("Error al insertar al insertar pago: " + ex.Message);
             }
         }
+        // Actualizar pedido sin SP
+        public void ActualizarPago(Pagos actualizarPago)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
 
+                ejecutarSql.CommandText = "UPDATE Pagos SET ID_pago = @ID_pago, ID_pedido = @ID_pedido, Monto = @Monto, Fecha_pago = @Fecha_pago WHERE Metodo_Pago = @Metodo_Pago";
+                ejecutarSql.Parameters.AddWithValue("@ID_pago", actualizarPago.ID_pago);
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", actualizarPago.ID_pedido);
+                ejecutarSql.Parameters.AddWithValue("@Monto", actualizarPago.Monto);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_pago", actualizarPago.Fecha_Pago);
+                ejecutarSql.Parameters.AddWithValue("@Metodo_pago", actualizarPago.Metodo_Pago);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el pago: " + ex.Message);
+            }
+        }
+
+        // Actualizar pago con SP
+        public void ActualizarPago_PR(Pagos actualizarPago)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_ActualizarPago";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pago", actualizarPago.ID_pago);
+                ejecutarSql.Parameters.AddWithValue("@ID_pedido", actualizarPago.ID_pedido);
+                ejecutarSql.Parameters.AddWithValue("@Fecha_Pago", actualizarPago.Fecha_Pago);
+                ejecutarSql.Parameters.AddWithValue("@Metodo_pago", actualizarPago.Metodo_Pago);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el pago: " + ex.Message);
+            }
+        }
+        // Eliminar pago sin SP
+        public void EliminarPago(int Id_Pago)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "DELETE FROM Pagos WHERE ID_pago = @ID_pago";
+                ejecutarSql.Parameters.AddWithValue("@ID_pago", Id_Pago);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pago: " + ex.Message);
+            }
+        }
+        // Eliminar pago con SP
+        public void EliminarPago_PR(int Id_Pago)
+        {
+            try
+            {
+                ejecutarSql.Connection = conexion.AbrirConexion();
+                ejecutarSql.CommandText = "pr_EliminarPago";
+                ejecutarSql.CommandType = CommandType.StoredProcedure;
+
+                ejecutarSql.Parameters.AddWithValue("@ID_pago", Id_Pago);
+                ejecutarSql.ExecuteNonQuery();
+                ejecutarSql.Parameters.Clear();
+
+                conexion.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pago: " + ex.Message);
+            }
+        }
     }
 }
