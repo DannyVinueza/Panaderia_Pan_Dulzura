@@ -44,8 +44,31 @@ namespace Panaderia_LogicaNegocio
 
             }
 
+        }
+        // Actualizar pago con SP
+        public void ActualizarPago(Pagos pago)
+        {
+            try
+            {
+                PagosDAO.ActualizarPago_PR(pago);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el pago: " + ex.Message);
+            }
+        }
 
-
+        // Eliminar el pago con SP
+        public void EliminarPago(int IdPago)
+        {
+            try
+            {
+                PagosDAO.EliminarPago_PR(IdPago);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el pago: " + ex.Message);
+            }
         }
     }
 }
