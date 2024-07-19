@@ -34,24 +34,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtidProducto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtidPedido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtidDetalle = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvListaDetallePedido = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnIrPagina = new System.Windows.Forms.Button();
-            this.cbxVentanas = new System.Windows.Forms.ComboBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.cbxIdProducto = new System.Windows.Forms.ComboBox();
+            this.cbxIdPedido = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDetallePedido)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -65,13 +62,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxIdPedido);
+            this.groupBox1.Controls.Add(this.cbxIdProducto);
             this.groupBox1.Controls.Add(this.txtPrecio);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtidProducto);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtidPedido);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtidDetalle);
             this.groupBox1.Controls.Add(this.label1);
@@ -113,13 +110,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Cantidad";
             // 
-            // txtidProducto
-            // 
-            this.txtidProducto.Location = new System.Drawing.Point(380, 27);
-            this.txtidProducto.Name = "txtidProducto";
-            this.txtidProducto.Size = new System.Drawing.Size(93, 22);
-            this.txtidProducto.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -128,13 +118,6 @@
             this.label3.Size = new System.Drawing.Size(79, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Id_Producto";
-            // 
-            // txtidPedido
-            // 
-            this.txtidPedido.Location = new System.Drawing.Point(140, 61);
-            this.txtidPedido.Name = "txtidPedido";
-            this.txtidPedido.Size = new System.Drawing.Size(93, 22);
-            this.txtidPedido.TabIndex = 3;
             // 
             // label2
             // 
@@ -155,7 +138,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnCancelar);
+            this.groupBox2.Controls.Add(this.btnActualizar);
+            this.groupBox2.Controls.Add(this.btnLimpiar);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnAceptar);
             this.groupBox2.Location = new System.Drawing.Point(43, 207);
@@ -164,27 +148,29 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // btnCancelar
+            // btnLimpiar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(508, 22);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(104, 34);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Location = new System.Drawing.Point(370, 24);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(104, 31);
+            this.btnLimpiar.TabIndex = 2;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(316, 22);
+            this.btnEliminar.Location = new System.Drawing.Point(198, 21);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(91, 34);
             this.btnEliminar.TabIndex = 1;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(123, 22);
+            this.btnAceptar.Location = new System.Drawing.Point(48, 21);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(87, 34);
             this.btnAceptar.TabIndex = 0;
@@ -213,43 +199,38 @@
             this.label6.Text = "DETALLE PEDIDOS";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // groupBox3
+            // btnActualizar
             // 
-            this.groupBox3.Controls.Add(this.btnIrPagina);
-            this.groupBox3.Controls.Add(this.cbxVentanas);
-            this.groupBox3.Location = new System.Drawing.Point(819, 157);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(169, 121);
-            this.groupBox3.TabIndex = 29;
-            this.groupBox3.TabStop = false;
+            this.btnActualizar.Location = new System.Drawing.Point(528, 24);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(102, 31);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
-            // btnIrPagina
+            // cbxIdProducto
             // 
-            this.btnIrPagina.Location = new System.Drawing.Point(25, 74);
-            this.btnIrPagina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnIrPagina.Name = "btnIrPagina";
-            this.btnIrPagina.Size = new System.Drawing.Size(117, 25);
-            this.btnIrPagina.TabIndex = 1;
-            this.btnIrPagina.Text = "Ir a la página seleccionada";
-            this.btnIrPagina.UseVisualStyleBackColor = true;
+            this.cbxIdProducto.FormattingEnabled = true;
+            this.cbxIdProducto.Location = new System.Drawing.Point(380, 27);
+            this.cbxIdProducto.Name = "cbxIdProducto";
+            this.cbxIdProducto.Size = new System.Drawing.Size(121, 24);
+            this.cbxIdProducto.TabIndex = 10;
+            this.cbxIdProducto.SelectedIndexChanged += new System.EventHandler(this.cbxIdProducto_SelectedIndexChanged);
             // 
-            // cbxVentanas
+            // cbxIdPedido
             // 
-            this.cbxVentanas.FormattingEnabled = true;
-            this.cbxVentanas.Location = new System.Drawing.Point(25, 32);
-            this.cbxVentanas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxVentanas.Name = "cbxVentanas";
-            this.cbxVentanas.Size = new System.Drawing.Size(121, 24);
-            this.cbxVentanas.TabIndex = 0;
+            this.cbxIdPedido.FormattingEnabled = true;
+            this.cbxIdPedido.Location = new System.Drawing.Point(135, 61);
+            this.cbxIdPedido.Name = "cbxIdPedido";
+            this.cbxIdPedido.Size = new System.Drawing.Size(121, 24);
+            this.cbxIdPedido.TabIndex = 11;
             // 
             // FrmDetallePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 450);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(837, 499);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvListaDetallePedido);
             this.Controls.Add(this.groupBox2);
@@ -261,7 +242,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDetallePedido)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +252,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtidPedido;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtidDetalle;
         private System.Windows.Forms.DataGridView dgvListaDetallePedido;
@@ -280,14 +259,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtidProducto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnIrPagina;
-        private System.Windows.Forms.ComboBox cbxVentanas;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.ComboBox cbxIdPedido;
+        private System.Windows.Forms.ComboBox cbxIdProducto;
     }
 }

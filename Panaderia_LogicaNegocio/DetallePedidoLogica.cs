@@ -13,8 +13,8 @@ namespace Panaderia_LogicaNegocio
     {
         private Detalle_PedidoDAO Detalle_PedidoDAO;
 
-        public DetallePedidoLogica() 
-        { 
+        public DetallePedidoLogica()
+        {
             Detalle_PedidoDAO = new Detalle_PedidoDAO();
 
         }
@@ -25,19 +25,19 @@ namespace Panaderia_LogicaNegocio
                 Detalle_PedidoDAO.InsertarDetallePedido(nuevoDetallePedido);
                 return true;
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 throw new Exception("Error: " + ex.Message);
-                
+
             }
-           
+
         }
         public DataTable ListarDetallePedido()
         {
             try
             {
                 return Detalle_PedidoDAO.ListarDetallePedidos();
-                
+
             }
             catch (Exception ex)
             {
@@ -46,6 +46,29 @@ namespace Panaderia_LogicaNegocio
             }
 
         }
-
+        //Actualizar usuario con PR
+        public void ActualizarDetallePedido(Detalle_Pedido detalle_Pedido)
+        {
+            try
+            {
+                Detalle_PedidoDAO.ActualizarDetallePedido_PR(detalle_Pedido);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar detalle Pedido:" + ex.Message);
+            }
+        }
+        //Eliminar uaurio con PR
+        public void EliminarDetallePedido(int IdDetallePedido)
+        {
+            try
+            {
+                Detalle_PedidoDAO.EliminarDetallePedido_SP(IdDetallePedido);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar detalle pedido:" + ex.Message);
+            }
+        }
     }
 }

@@ -47,6 +47,13 @@ namespace Panaderia_Presentacion
             nuevofrmPedidos.Show();
         }
 
+        private void abriDetallePedidoNuevo()
+        {
+            FrmDetallePedido nuevofrmDetallePedido = new FrmDetallePedido();
+            nuevofrmDetallePedido.MdiParent = this;
+            nuevofrmDetallePedido.Show();
+        }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
             abrirProductoNuevo();
@@ -105,6 +112,11 @@ namespace Panaderia_Presentacion
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             abrirPedidoNuevo();
+        }
+
+        private void detallePedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abriDetallePedidoNuevo();
         }
     }
 }

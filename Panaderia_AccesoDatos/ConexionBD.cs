@@ -10,7 +10,7 @@ namespace Panaderia_AccesoDatos
 {
     internal class ConexionBD
     {
-        private SqlConnection connection = new SqlConnection("Server=Danny\\SQLEXPRESS;DataBase=Pan_Dulzura;Integrated Security=True;");
+        private SqlConnection connection = new SqlConnection("Server=DESKTOP-2LFT1KS\\MSSQLSERVER01;DataBase=Pan_dulzura;Integrated Security=True;");
 
         // Metodo para abrir la conexion
         public SqlConnection AbrirConexion()
