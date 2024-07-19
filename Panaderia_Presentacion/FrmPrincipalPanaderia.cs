@@ -53,12 +53,7 @@ namespace Panaderia_Presentacion
             nuevofrmDetallePedido.MdiParent = this;
             nuevofrmDetallePedido.Show();
         }
-        private void abrirPagoNuevo()
-        {
-            FrmPagos nuevofrmPago = new FrmPagos();
-            nuevofrmPago.MdiParent = this;
-            nuevofrmPago.Show();
-        }
+
         private void ShowNewForm(object sender, EventArgs e)
         {
             abrirProductoNuevo();
@@ -122,20 +117,6 @@ namespace Panaderia_Presentacion
         private void detallePedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             abriDetallePedidoNuevo();
-        }
-
-        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            abrirPagoNuevo();
-        }
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            abrirPagoNuevo();
-        }
-
-        private void pagosToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
