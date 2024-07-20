@@ -53,15 +53,15 @@ namespace Panaderia_Presentacion
                 Producto producto = new Producto
                 {
                     ID_producto = Convert.ToInt32(row["ID_producto"]),
-                    Nombre = row["Nombre"].ToString(),
-                    // Otros campos según tu clase Producto
-                };
+                    Nombre = Convert.ToInt32(row["ID_producto"]) + " " + row["Nombre"].ToString(), 
+                 };
                 productos.Add(producto);
             }
 
             cbxIdProducto.DataSource = productos;
-            cbxIdProducto.DisplayMember = "Nombre";
             cbxIdProducto.ValueMember = "ID_producto";
+            cbxIdProducto.DisplayMember = "Nombre";
+
 
         }
     
@@ -80,7 +80,7 @@ namespace Panaderia_Presentacion
             {
                 //nuevoDetallePedido.ID_detalle = Convert.ToInt32(txtidDetalle.Text);
                 nuevoDetallePedido.ID_pedido = Convert.ToInt32(cbxIdPedido.Text);
-                nuevoDetallePedido.ID_producto = Convert.ToInt32(cbxIdProducto.Text);
+                nuevoDetallePedido.ID_producto = Convert.ToInt32(cbxIdProducto.SelectedValue);
                 nuevoDetallePedido.Cantidad = Convert.ToInt32(txtCantidad.Text);
                 nuevoDetallePedido.Precio = Convert.ToDouble(txtPrecio.Text);
                 DetallePedidoLogica.InsertarDetallePedido(nuevoDetallePedido);
