@@ -35,9 +35,9 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxIdPedido = new System.Windows.Forms.ComboBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.dtpFechaNotificacion = new System.Windows.Forms.DateTimePicker();
-            this.txtID_pedido = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@
             this.btnLimpiar.TabIndex = 16;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnActulizar
             // 
@@ -89,6 +90,7 @@
             this.btnActulizar.TabIndex = 15;
             this.btnActulizar.Text = "Actualizar";
             this.btnActulizar.UseVisualStyleBackColor = true;
+            this.btnActulizar.Click += new System.EventHandler(this.btnActulizar_Click);
             // 
             // btnAceptar
             // 
@@ -112,9 +114,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxIdPedido);
             this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.dtpFechaNotificacion);
-            this.groupBox1.Controls.Add(this.txtID_pedido);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -125,6 +127,14 @@
             this.groupBox1.Size = new System.Drawing.Size(913, 151);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
+            // 
+            // cbxIdPedido
+            // 
+            this.cbxIdPedido.FormattingEnabled = true;
+            this.cbxIdPedido.Location = new System.Drawing.Point(187, 67);
+            this.cbxIdPedido.Name = "cbxIdPedido";
+            this.cbxIdPedido.Size = new System.Drawing.Size(121, 24);
+            this.cbxIdPedido.TabIndex = 14;
             // 
             // txtTipo
             // 
@@ -140,13 +150,6 @@
             this.dtpFechaNotificacion.Size = new System.Drawing.Size(258, 22);
             this.dtpFechaNotificacion.TabIndex = 12;
             this.dtpFechaNotificacion.Value = new System.DateTime(2024, 7, 16, 20, 35, 18, 0);
-            // 
-            // txtID_pedido
-            // 
-            this.txtID_pedido.Location = new System.Drawing.Point(187, 70);
-            this.txtID_pedido.Name = "txtID_pedido";
-            this.txtID_pedido.Size = new System.Drawing.Size(134, 22);
-            this.txtID_pedido.TabIndex = 7;
             // 
             // label4
             // 
@@ -204,6 +207,7 @@
             this.dgvListaNotificaciones.RowTemplate.Height = 24;
             this.dgvListaNotificaciones.Size = new System.Drawing.Size(920, 193);
             this.dgvListaNotificaciones.TabIndex = 22;
+            this.dgvListaNotificaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaNotificaciones_CellClick);
             // 
             // FrmNotificaciones
             // 
@@ -235,7 +239,6 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtID_pedido;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -246,5 +249,6 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Button btnActulizar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.ComboBox cbxIdPedido;
     }
 }

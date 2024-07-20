@@ -40,7 +40,7 @@ namespace Panaderia_Presentacion
             }
 
             cbxIdPedido.DataSource = pedidos;
-            cbxIdPedido.DisplayMember = "Nombre";
+            cbxIdPedido.DisplayMember = "Id_pedido";
             cbxIdPedido.ValueMember = "ID_pedido";
         }
         private void CargarProductos()
@@ -137,8 +137,8 @@ namespace Panaderia_Presentacion
             }
             DataGridViewRow selectedRow = dgvListaDetallePedido.SelectedRows[0];
             txtidDetalle.Text = selectedRow.Cells["ID_detalle"].Value.ToString();
-            cbxIdPedido.SelectedValue =  selectedRow.Cells["ID_pedido"].Value.ToString();
-            cbxIdProducto.SelectedValue = selectedRow.Cells["ID_producto"].Value.ToString();
+            cbxIdPedido.SelectedValue =  selectedRow.Cells["ID_pedido"].Value;
+            cbxIdProducto.SelectedValue = selectedRow.Cells["ID_producto"].Value;
             txtCantidad.Text = selectedRow.Cells["Cantidad"].Value.ToString();
             txtPrecio.Text = selectedRow.Cells["Precio"].Value.ToString();
         }
@@ -162,6 +162,7 @@ namespace Panaderia_Presentacion
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             insertarDetallePedido();
+            LimpiarInfo();
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
@@ -175,6 +176,7 @@ namespace Panaderia_Presentacion
                     MessageBox.Show("Detalle eliminado Correctamente");
 
                     listarDetallePedido();
+                    LimpiarInfo();
                 }
                 catch (Exception ex)
                 {
@@ -195,8 +197,8 @@ namespace Panaderia_Presentacion
                 Detalle_Pedido detalleActualizado = new Detalle_Pedido
                 {
                     ID_detalle = Convert.ToInt32(txtidDetalle.Text),
-                    ID_pedido = Convert.ToInt32(cbxIdPedido.Text),
-                    ID_producto = Convert.ToInt32(cbxIdProducto.Text),
+                    ID_pedido = Convert.ToInt32(cbxIdPedido.SelectedValue),
+                    ID_producto = Convert.ToInt32(cbxIdProducto.SelectedValue),
                     Cantidad = Convert.ToInt32(txtCantidad.Text),
                     Precio = Convert.ToDouble(txtPrecio.Text)
                 };

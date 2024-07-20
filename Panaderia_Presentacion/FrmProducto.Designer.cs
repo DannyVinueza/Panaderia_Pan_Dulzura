@@ -165,7 +165,6 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Enabled = false;
             this.btnLimpiar.Location = new System.Drawing.Point(791, 14);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(102, 37);

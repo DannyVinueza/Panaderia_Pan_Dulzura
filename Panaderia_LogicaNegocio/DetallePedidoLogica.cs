@@ -22,7 +22,7 @@ namespace Panaderia_LogicaNegocio
         {
             try
             {
-                Detalle_PedidoDAO.InsertarDetallePedido(nuevoDetallePedido);
+                Detalle_PedidoDAO.InsertarDetallePedido_PR(nuevoDetallePedido);
                 return true;
             }
             catch (Exception ex)
@@ -36,7 +36,7 @@ namespace Panaderia_LogicaNegocio
         {
             try
             {
-                return Detalle_PedidoDAO.ListarDetallePedidos();
+                return Detalle_PedidoDAO.ListarDetallePedido_PR();
 
             }
             catch (Exception ex)

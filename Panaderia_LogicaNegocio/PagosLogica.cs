@@ -19,7 +19,7 @@ namespace Panaderia_LogicaNegocio
         {
             try
             {
-                PagosDAO.InsertarPago(nuevoPago);
+                PagosDAO.InsertarPago_PR(nuevoPago);
                 return true;
             }
             catch (Exception ex)
@@ -33,7 +33,7 @@ namespace Panaderia_LogicaNegocio
         {
             try
             {
-                return PagosDAO.ListarPagos();
+                return PagosDAO.ListarPago_PR();
 
             }
             catch (Exception ex)

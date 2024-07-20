@@ -37,6 +37,9 @@
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detallePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -62,6 +65,13 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,7 +82,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.detallePedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -115,7 +124,9 @@
             this.categoriasToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.pedidosToolStripMenuItem,
-            this.detallePedidoToolStripMenuItem});
+            this.detallePedidoToolStripMenuItem,
+            this.notificacionesToolStripMenuItem,
+            this.pagosToolStripMenuItem});
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
@@ -128,7 +139,7 @@
             this.productosToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.producto;
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.productosToolStripMenuItem.Text = "&Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
@@ -137,7 +148,7 @@
             this.categoriasToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.etiqueta_de_precio;
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
             this.categoriasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.categoriasToolStripMenuItem.Text = "&Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
@@ -146,18 +157,45 @@
             this.usuariosToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.user;
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.U)));
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // pedidosToolStripMenuItem
             // 
-            this.pedidosToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.order;
+            this.pedidosToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.details;
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
             this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
+            // 
+            // detallePedidoToolStripMenuItem
+            // 
+            this.detallePedidoToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.order;
+            this.detallePedidoToolStripMenuItem.Name = "detallePedidoToolStripMenuItem";
+            this.detallePedidoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.detallePedidoToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.detallePedidoToolStripMenuItem.Text = "&DetallePedido";
+            this.detallePedidoToolStripMenuItem.Click += new System.EventHandler(this.detallePedidoToolStripMenuItem_Click);
+            // 
+            // notificacionesToolStripMenuItem
+            // 
+            this.notificacionesToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.notifi;
+            this.notificacionesToolStripMenuItem.Name = "notificacionesToolStripMenuItem";
+            this.notificacionesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
+            this.notificacionesToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.notificacionesToolStripMenuItem.Text = "Notificaciones";
+            this.notificacionesToolStripMenuItem.Click += new System.EventHandler(this.notificacionesToolStripMenuItem_Click);
+            // 
+            // pagosToolStripMenuItem
+            // 
+            this.pagosToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.price;
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -294,6 +332,13 @@
             this.toolStripButton2,
             this.toolStripSeparator9,
             this.toolStripButton3,
+            this.toolStripSeparator10,
+            this.toolStripButton5,
+            this.toolStripSeparator12,
+            this.toolStripButton4,
+            this.toolStripSeparator11,
+            this.toolStripButton6,
+            this.toolStripSeparator13,
             this.openToolStripButton,
             this.saveToolStripButton,
             this.toolStripSeparator1,
@@ -358,13 +403,66 @@
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::Panaderia_Presentacion.Properties.Resources.order;
+            this.toolStripButton3.Image = global::Panaderia_Presentacion.Properties.Resources.details;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.ToolTipText = "Pedidos";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::Panaderia_Presentacion.Properties.Resources.notifi;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.ToolTipText = "Notificaciones";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = global::Panaderia_Presentacion.Properties.Resources.order;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.ToolTipText = "Detalle Pedidos";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::Panaderia_Presentacion.Properties.Resources.price;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.ToolTipText = "Pagos";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 27);
             // 
             // openToolStripButton
             // 
@@ -440,15 +538,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(54, 20);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // detallePedidoToolStripMenuItem
-            // 
-            this.detallePedidoToolStripMenuItem.Image = global::Panaderia_Presentacion.Properties.Resources.order;
-            this.detallePedidoToolStripMenuItem.Name = "detallePedidoToolStripMenuItem";
-            this.detallePedidoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.detallePedidoToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.detallePedidoToolStripMenuItem.Text = "&DetallePedido";
-            this.detallePedidoToolStripMenuItem.Click += new System.EventHandler(this.detallePedidoToolStripMenuItem_Click);
-            // 
             // FrmPrincipalPanaderia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -520,6 +609,15 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem detallePedidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notificacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
     }
 }
 

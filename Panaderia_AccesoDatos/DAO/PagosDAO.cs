@@ -128,6 +128,7 @@ namespace Panaderia_AccesoDatos.DAO
                 ejecutarSql.Parameters.AddWithValue("@ID_pedido", actualizarPago.ID_pedido);
                 ejecutarSql.Parameters.AddWithValue("@Fecha_Pago", actualizarPago.Fecha_Pago);
                 ejecutarSql.Parameters.AddWithValue("@Metodo_pago", actualizarPago.Metodo_Pago);
+                ejecutarSql.Parameters.AddWithValue("@Monto", actualizarPago.Monto);
                 ejecutarSql.ExecuteNonQuery();
                 ejecutarSql.Parameters.Clear();
 

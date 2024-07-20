@@ -166,5 +166,14 @@
   <ItemGroup>
     <None Include="Resources\order.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notifi.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\details.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\price.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
